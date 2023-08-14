@@ -1,7 +1,9 @@
 #' @author Ali Raisolsadat
 #' @description
-#' A short description...
-#' 
+#' This is the main project script. This script uses the main methodology to evaluate the results
+#' and constructs the first 6 plots of the masters essay.
+#' @details
+#' Last updated: 14, August, 2023
 
 #' Load Packages
 pckgs = c("readxl", "tidyverse", "dplyr", "janitor", "ggpubr", "readr", "tidyr", "caret", "magick", "flexmix", "MASS")

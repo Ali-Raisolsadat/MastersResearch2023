@@ -1,7 +1,9 @@
 #' @author Ali Raisolsadat
 #' @description
-#' A short description...
-#' 
+#' This R script constructs additional plots for the discussion section of the masters essay.
+#' It also outputs the summary of the regressions used to construct the attachment and exhaustion thresholds.
+#' @details
+#' Last updated: 14, August, 2023
 
 #' **********************************************************************************************************************************
 #' **********************************************************************************************************************************
