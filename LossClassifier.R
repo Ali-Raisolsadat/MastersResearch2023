@@ -339,7 +339,7 @@ lossInfoDf <- makeInfoDf(lossExcessProbDf, "loss", DIFF_STEP)
 png('figure1.png', width = 7680, height = 4320, units = "px", pointsize = 125)
 plot(lossExcessProbDf$year, lossExcessProbDf$loss, type = "l",  ylim = c(0, 260), xlim = c(START_YEAR, END_YEAR),
      ylab = "Estimated Loss (Billion USD)", xlab = "Year", cex.axis = 1.25, cex.lab = 1.25, 
-     family = "serif", col = "#112446", lwd = 2, xaxt = "n")
+     family = "serif", col = "black", lwd = 2, xaxt = "n")
 points(lossExcessProbDf$year, lossExcessProbDf$loss, col = adjustcolor("red", alpha.f=1), pch = 19, cex = 1.4)
 grid(nx = NULL, ny = NULL, lty = 2, col = "gray", lwd = 1)
 dev.off()
@@ -349,10 +349,14 @@ dev.off()
 png('figure2.png', width = 7680, height = 4320, units = "px", pointsize = 125)
 plot(lossExcessProbDf$year, lossExcessProbDf$cum_prob, type = "l",  ylim = c(0, 1), xlim = c(START_YEAR, END_YEAR), 
      ylab = "", xlab = "Year", lwd = 2,
-     cex.axis = 1.25, cex.lab = 1.25, family = "serif", col = "#112446")
-points(lossExcessProbDf$year, lossExcessProbDf$cum_prob, col = adjustcolor("red", alpha.f=1), pch = 19, cex = 1.4)
+     cex.axis = 1.25, cex.lab = 1.25, family = "serif", col = "black")
+points(probInfoDf$year[which(probInfoDf$accel_group == 2)], probInfoDf$prob[which(probInfoDf$accel_group == 2)], 
+       col = adjustcolor("#3333FF", alpha.f=1), pch = 19, cex = 1.5)
+points(probInfoDf$year[which(probInfoDf$accel_group == 1)], probInfoDf$prob[which(probInfoDf$accel_group == 1)], 
+       col = adjustcolor("#FF9900", alpha.f=1), pch = 19, cex = 1.5)
+legend("bottomright", fill=c("#3333FF", "#FF9900"), inset=.02, cex=1.25, horiz=FALSE, title="Classification of probabilities", text.font = 3,
+       legend=c(bquote(paste("Near Minimum: ", p[t], "''") > 0), bquote(paste("Near Maximum: ", p[t], "''") < 0)))
 grid(nx = NULL, ny = NULL, lty = 2, col = "gray", lwd = 1)
-mtext(text = expression(~ hat(F)(x[t])), side=2, padj = -1.5, at = 0.5, family = "serif", cex = 1.25)
 dev.off()
 
 #' **********************************************************************************************************************************
